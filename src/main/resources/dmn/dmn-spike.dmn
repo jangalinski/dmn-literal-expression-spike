@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="drd-dmn-spike" name="Spike DMN chain" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <decision id="dec_1" name="Decision 1" camunda:versionTag="1">
+    <decisionTable id="DecisionTable_08pkuqg">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="Foo" typeRef="integer" />
+      <rule id="DecisionRule_19b2165">
+        <inputEntry id="UnaryTests_13neu1g">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_030puvn">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="dec_2" name="Decision 2" camunda:versionTag="1">
+    <informationRequirement id="InformationRequirement_0td8h1x">
+      <requiredDecision href="#dec_1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_15coeh5">
+      <input id="InputClause_1xly0op">
+        <inputExpression id="LiteralExpression_09gzdbv" typeRef="integer">
+          <text>Foo</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0ma3t4y" name="Bar" typeRef="double" />
+      <rule id="DecisionRule_1xvpaq9">
+        <inputEntry id="UnaryTests_0hb6zju">
+          <text>5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06jo1uw">
+          <text>1.0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="dec_1">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1uppmfb" dmnElementRef="dec_2">
+        <dc:Bounds height="80" width="180" x="480" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1cgbbkr" dmnElementRef="InformationRequirement_0td8h1x">
+        <di:waypoint x="340" y="140" />
+        <di:waypoint x="460" y="140" />
+        <di:waypoint x="480" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

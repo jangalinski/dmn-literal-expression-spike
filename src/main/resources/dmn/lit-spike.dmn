@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_05pfzki" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
-  <decision id="lit_1" name="Expr 1" camunda:versionTag="1">
-    <variable id="InformationItem_1b2hxh6" name="expr1Out" typeRef="integer" />
+  <decision id="expr_a" name="Expr A" camunda:versionTag="1">
+    <variable id="InformationItem_1b2hxh6" name="a" typeRef="integer" />
     <literalExpression id="LiteralExpression_1giej7l" expressionLanguage="groovy">
       <text>5</text>
     </literalExpression>
   </decision>
-  <decision id="lit_2" name="Expr 2">
-    <variable id="InformationItem_1aj2xou" name="expr2Out" typeRef="long" />
+  <decision id="expr_c" name="Expr A*B = C" camunda:versionTag="1">
+    <variable id="InformationItem_1aj2xou" name="c" typeRef="integer" />
     <informationRequirement id="InformationRequirement_0pgj7tj">
-      <requiredDecision href="#lit_1" />
+      <requiredDecision href="#expr_a" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0g4j4fe">
+      <requiredDecision href="#expr_b" />
     </informationRequirement>
     <literalExpression id="LiteralExpression_00qduci" expressionLanguage="groovy">
-      <text>expr1Out * 2</text>
+      <text>a * b</text>
+    </literalExpression>
+  </decision>
+  <decision id="expr_b" name="Expr B" camunda:versionTag="1">
+    <variable id="InformationItem_0cveno2" name="b" typeRef="integer" />
+    <literalExpression id="LiteralExpression_0k9shmz" expressionLanguage="groovy">
+      <text>8</text>
+    </literalExpression>
+  </decision>
+  <decision id="expr_e" name="Expr E" camunda:versionTag="1">
+    <variable id="InformationItem_17zeue4" name="e" typeRef="integer" />
+    <informationRequirement id="InformationRequirement_1501061">
+      <requiredDecision href="#expr_c" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1dw4uuc">
+      <requiredDecision href="#expr_d" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_1de3d34">
+      <text>c + d</text>
+    </literalExpression>
+  </decision>
+  <decision id="expr_d" name="Expr D" camunda:versionTag="1">
+    <variable id="InformationItem_0wmod0q" name="d" typeRef="integer" />
+    <literalExpression id="LiteralExpression_01p58el" expressionLanguage="groovy">
+      <text>17</text>
     </literalExpression>
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
-      <dmndi:DMNShape id="DMNShape_01x34hn" dmnElementRef="lit_1">
+      <dmndi:DMNShape id="DMNShape_01x34hn" dmnElementRef="expr_a">
         <dc:Bounds height="80" width="180" x="160" y="100" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="DMNShape_1wqyqao" dmnElementRef="lit_2">
-        <dc:Bounds height="80" width="180" x="420" y="100" />
+      <dmndi:DMNShape id="DMNShape_1wqyqao" dmnElementRef="expr_c">
+        <dc:Bounds height="80" width="180" x="540" y="210" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_1dj3hbs" dmnElementRef="InformationRequirement_0pgj7tj">
-        <di:waypoint x="340" y="140" />
-        <di:waypoint x="400" y="140" />
-        <di:waypoint x="420" y="140" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="630" y="190" />
+        <di:waypoint x="630" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1farz7v" dmnElementRef="expr_b">
+        <dc:Bounds height="80" width="180" x="160" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_180ipjb" dmnElementRef="InformationRequirement_0g4j4fe">
+        <di:waypoint x="340" y="290" />
+        <di:waypoint x="520" y="250" />
+        <di:waypoint x="540" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0s5m2oa" dmnElementRef="expr_e">
+        <dc:Bounds height="80" width="180" x="540" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0tqlyy2" dmnElementRef="InformationRequirement_1501061">
+        <di:waypoint x="630" y="290" />
+        <di:waypoint x="600" y="370" />
+        <di:waypoint x="600" y="390" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1smzilt" dmnElementRef="expr_d">
+        <dc:Bounds height="80" width="180" x="790" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0crbqxz" dmnElementRef="InformationRequirement_1dw4uuc">
+        <di:waypoint x="880" y="290" />
+        <di:waypoint x="660" y="370" />
+        <di:waypoint x="660" y="390" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>

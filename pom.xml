@@ -27,6 +27,7 @@
     <jackson.version>2.12.1</jackson.version>
     <jetbrains-annotations.version>20.1.0</jetbrains-annotations.version>
     <assertj.version>3.19.0</assertj.version>
+    <camunda-data.version>1.2.0</camunda-data.version>
 
     <assertj.generated.dir>src/test/generated-assertions</assertj.generated.dir>
   </properties>
@@ -58,10 +59,6 @@
 
     <dependency>
       <groupId>org.camunda.bpm</groupId>
-      <artifactId>camunda-engine</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine-spring</artifactId>
     </dependency>
 
@@ -72,22 +69,21 @@
     </dependency>
 
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jdbc</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
-      <version>3.0.7</version>
+      <version>2.4.21</version>
+    </dependency>
+
+<!--    <dependency>-->
+<!--      <groupId>org.codehaus.groovy</groupId>-->
+<!--      <artifactId>groovy-</artifactId>-->
+<!--      <version>3.0.7</version>-->
+<!--    </dependency>-->
+
+    <dependency>
+      <groupId>io.holunda.data</groupId>
+      <artifactId>camunda-bpm-data</artifactId>
+      <version>${camunda-data.version}</version>
     </dependency>
 
     <dependency>
@@ -95,6 +91,7 @@
       <artifactId>lombok</artifactId>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>

@@ -16,6 +16,7 @@ import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.camunda.bpm.engine.variable.VariableMap;
 import org.camunda.bpm.engine.variable.Variables;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -23,11 +24,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 
-@Deployment(resources = "dmn/lit-spike.dmn")
+@Ignore
 public class DmnLitSpikeTest {
 
   private final Logger log = LoggerFactory.getLogger(DmnLitSpikeTest.class);
-
 
   @Rule
   public final ProcessEngineRule camunda = new ProcessEngineRule(TestHelper.createProcessEngineConfiguration().buildProcessEngine());
